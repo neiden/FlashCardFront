@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Update Flashcard</h1>
+<div mat-dialog-content class="field-wrapper">
+    <form [formGroup]="updateForm" (ngSubmit)="onUpdate()" >
+    <div class="mat-form">
+        <label for="question">Question</label>
+        <input type="text" class="input"  formControlName="question" required>
+      </div>
+      <div class="mat-form">
+        <label for="answer">Answer</label>
+        <input type="text" class="input" formControlName="answer" required>
+      </div>
+    </form>
+</div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-button (click)="onUpdate()">Update</button>
+      <p *ngIf="createFailed">Failed to create goal</p>
+</div>

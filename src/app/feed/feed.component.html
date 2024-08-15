@@ -1,0 +1,24 @@
+<div *ngIf="tableMode; else table">
+    <h1>List of flashcards</h1>
+    <div class="card-container">
+        <app-flashcard *ngFor="let card of cardList" (refreshCardListEvent)="refreshCardList($event)" (cardDeleteEvent)="deleteCard($event)" [cardData]="card"></app-flashcard>
+    </div>
+</div>
+<ng-template #table>
+    <table>
+        <thead>
+            <tr>
+                <th class="question-col">Question</th>
+                <th class="answer-col">Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngfor="let card of cardList">
+                <td class="question-col">{{card.question}}</td>
+                <td class="answer-col">{{card.answer}}</td> 
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+
+<button (click)="openCreateCardDialog()">Create new card</button>
