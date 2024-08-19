@@ -1,0 +1,142 @@
+.card-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card-container button{
+    border-color: rgb(73, 73, 73);
+    background-color: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 35px;
+    margin-top: 8rem;
+}
+
+.card-container button:hover{
+    background-color: rgb(210, 209, 209);
+}
+
+#backBtn{
+    /* margin-right: -15rem; */
+}
+
+#forwardBtn{
+    /* margin-left: -15rem; */
+}
+
+
+.total-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+}
+
+#ratio{
+    width: 150px;
+    margin-left: 17rem;
+    
+}
+.question-col{
+    
+}
+
+
+
+
+
+table {
+    width: 100%;
+    table-layout: fixed; /* This makes the table respect the set widths */
+    justify-content: left;
+    text-align: left;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+
+
+  
+
+  tbody tr:nth-child(odd){
+    height: 3rem;
+    background-color:white;
+    cursor:pointer;
+    outline: none;
+    text-align: left;   
+    padding: 1rem;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+  }
+  
+  tbody tr:nth-child(even){
+    height: 3rem;
+    background-color: rgb(235, 238, 241);
+    cursor:pointer;
+    outline: none;
+    text-align: left;   
+    padding: 1rem;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+  }
+  
+  tr td {
+      padding-top: .7rem;
+      padding-bottom: .7rem;
+      padding-left: 1rem;
+  }
+  
+  tbody tr:hover {
+      background-color: #dee3e0;
+      color: white;
+      padding: .2rem;
+      padding-top: .7rem;
+      padding-bottom: .7rem;
+  }
+  
+  thead th {
+      padding-left: 1rem;
+      padding-bottom: 1rem;
+  }
+
+
+  #rowOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 1rem;
+  }
+  
+  #rowOptions button{
+    background-color: inherit;
+    color: #a7afbb;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #rowOptions button:hover{
+    color: white;
+  }
+
+  .card-container #createCardBtn {
+    border-radius: 5px;
+    margin-left: 10rem;
+  }
+
+
+  #back-btn{
+    background: none;
+    border: none;
+    border-style: none;
+  }
+
+  #back-btn:hover{
+    color: grey;
+    cursor: pointer;
+  }
+
+  .empty-set{
+    
+  }

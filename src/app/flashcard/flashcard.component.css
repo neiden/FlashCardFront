@@ -36,10 +36,12 @@
     transition: transform 0.5s;
     perspective: 1000px;
     background-color: white;
+    border: none;
 }
 
 #cardContainer:hover{
     background-color: rgb(235, 238, 241);
+    cursor: pointer;
 }
 
 #cardContainer.flipped{
@@ -60,5 +62,9 @@
 #cardOptions button:hover{
     border: none;
     color: grey;
+}
+#cardBody{
+    border: none;
+    background: none;
 }
 

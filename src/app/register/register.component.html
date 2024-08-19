@@ -1,0 +1,27 @@
+
+<div class="container">
+    <mat-card class="card">  
+        <div id="loginRight">
+            <!-- <img src="assets\images\titleLogo.png" alt="Title Logo"> -->
+            <h1>Create An Account</h1>
+            <form [formGroup]="registerForm" method="post" (ngSubmit)="onSubmit()">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required formControlName="username">
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required formControlName="password">
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required formControlName="email">
+                <p *ngIf="registrationFailed" id="registerFailed">{{errorMessage}}</p>
+                
+                <button [disabled]="!registerForm.valid" type="submit" id="login-button">Sign Up</button>
+            </form>
+            
+            <div id="signup">
+                <p>Return to login</p>
+                <a routerLink="/login" routerLinkActive="active">here</a>
+            </div>
+        </div>
+    </mat-card>
+</div>

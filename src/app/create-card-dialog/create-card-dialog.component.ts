@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DatabaseService } from '../Services/database.service';
 import { Flashcard } from '../Models/flashcard.model';
 
@@ -12,7 +12,7 @@ export class CreateCardDialogComponent {
   createFailed = false;
   question = "";
   answer = "";
-  constructor(private api: DatabaseService, private dialogRef: MatDialogRef<CreateCardDialogComponent>){}
+  constructor(private api: DatabaseService,@Inject(MAT_DIALOG_DATA) public studySetId: number, private dialogRef: MatDialogRef<CreateCardDialogComponent>){}
 
   onCancel(){
     this.dialogRef.close();
@@ -20,19 +20,16 @@ export class CreateCardDialogComponent {
 
   onCreate(){
     
-    let card = new Flashcard(0, this.question, this.answer);
+    let card = new Flashcard(0, this.question, this.answer, this.studySetId);
     this.api.createFlashcard(card).subscribe(
       {next: (data:any) => {
-       // this.loadingService.loadingOff();
         console.log("Succesfully created flashcard: " + JSON.stringify(data));
         card.id = data.id;
         this.dialogRef.close(card);
-       // this.studentService.refreshStudentList();
       },   
       error: (e) => {
         console.log("Error creating student: " + e);
         this.createFailed = true;
-      //  this.loadingService.loadingOff();
       }
     }
     );

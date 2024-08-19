@@ -1,24 +1,48 @@
-<div *ngIf="tableMode; else table">
-    <h1>List of flashcards</h1>
-    <div class="card-container">
-        <app-flashcard *ngFor="let card of cardList" (refreshCardListEvent)="refreshCardList($event)" (cardDeleteEvent)="deleteCard($event)" [cardData]="card"></app-flashcard>
-    </div>
-</div>
-<ng-template #table>
-    <table>
-        <thead>
-            <tr>
-                <th class="question-col">Question</th>
-                <th class="answer-col">Answer</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngfor="let card of cardList">
-                <td class="question-col">{{card.question}}</td>
-                <td class="answer-col">{{card.answer}}</td> 
-            </tr>
-        </tbody>
-    </table>
-</ng-template>
+<button id="back-btn" (click)="navigateBack()"><i class="material-icons">chevron_left</i></button>
 
-<button (click)="openCreateCardDialog()">Create new card</button>
+<div *ngIf="cardList.length > 0; else noCards">
+    <div *ngIf="tableMode; else table">
+        <div class="total-container">
+            <div class="card-container">
+                <!-- <app-flashcard *ngFor="let card of cardList" (refreshCardListEvent)="refreshCardList($event)" (cardDeleteEvent)="deleteCard($event)" [cardData]="card"></app-flashcard> -->
+                
+                <button id="backBtn" (click)="decrementCard()"><i class="material-icons">chevron_left</i></button>
+                <app-flashcard (refreshCardListEvent)="refreshCardList($event)" (cardDeleteEvent)="deleteCard($event)" [cardData]="currentCard"></app-flashcard>
+                <button id="forwardBtn" (click)="incrementCard()"><i class="material-icons">chevron_right</i></button>
+            </div>  
+            <p id="ratio">{{cardIdx + 1}} / {{cardList.length}}</p>
+            <button id="createCardBtn"(click)="openCreateCardDialog()">Create new card</button>
+            <button (click)="setTableMode()">Switch View</button>
+        </div>
+    </div>
+    <ng-template #table>
+        <table>
+            <thead>
+                <tr>
+                    <th class="question-col">Question</th>
+                    <th class="answer-col">Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let card of cardList">
+                    <td class="question-col">{{card.question}}</td>
+                    <td class="answer-col">{{card.answer}}</td> 
+                    <td class="actions-col">
+                        <div id="rowOptions">
+                            <button id="deleteBtn" mat-button (click)="openUpdateCardDialog(card)"><i class="material-icons">settings</i></button>
+                            <button id="editBtn" mat-button (click)="openDeleteCardDialog(card.id)"><i class="material-icons">delete</i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <button id="createCardBtn"(click)="openCreateCardDialog()">Create new card</button>
+        <button (click)="setTableMode()">Switch View</button>
+    </ng-template>
+
+</div>
+<ng-template #noCards class="empty-set">
+    <p>No cards created yet</p>
+    <button id="createCardBtn"(click)="openCreateCardDialog()">Create new card</button>
+</ng-template>

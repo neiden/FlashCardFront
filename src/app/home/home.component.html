@@ -1,2 +1,23 @@
-<p>home works!</p>
-<app-feed></app-feed>
+<div class="nav-container">  
+    <!-- <navbar></navbar> -->
+</div>
+
+<div class="main-content">
+    <div class="set-container">
+        <div *ngIf="loadingSets; else showSets">
+            <p>Loading Study Sets</p>
+        </div>
+        <ng-template #showSets>
+            <div class="study-set-container" *ngIf="studySets.length > 0; else emptySets">
+                <app-studyset (refreshStudySetListEvent)="refreshStudySetList($event)" (studySetDeleteEvent)="deleteStudySet($event)"  class="study-set" *ngFor="let set of studySets" [studySet]="set"></app-studyset>
+            </div>
+            <ng-template #emptySets>
+                <p>No study sets created yet</p>
+            </ng-template>
+            <div class="profileOptions">
+                <button (click)="openCreateStudySetDialog()">Create new study set</button>
+                <button (click)="logout()">Logout</button>
+            </div>
+        </ng-template>
+    </div>
+</div>

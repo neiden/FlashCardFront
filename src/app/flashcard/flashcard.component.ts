@@ -42,9 +42,6 @@ export class FlashcardComponent {
     event.stopPropagation();
     dialog.afterClosed().subscribe(result => {  
       if (result){
-        // this.api.deleteFlashcard(this.cardData.id).subscribe((data: any) => {
-        //   console.log("Flashcard Deleted with ID: " + this.cardData.id);
-        // })
         this.cardDeleteEvent.emit(this.cardData.id);
       }
     });

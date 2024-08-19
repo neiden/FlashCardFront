@@ -1,0 +1,39 @@
+.set-body{
+    width:250px;
+    height: 250px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.set-body:hover{
+    background-color: rgb(235, 238, 241);
+    cursor: pointer;
+}
+
+.content-container{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+
+
+
+#cardOptions{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+#cardOptions button{
+    border: none;
+    background-color: inherit;
+}
+    
+#cardOptions button:hover{
+    border: none;
+    color: grey;
+}
+
+h1 {
+    margin-top: 2rem;
+}

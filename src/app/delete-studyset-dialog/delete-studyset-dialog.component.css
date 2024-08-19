@@ -1,0 +1,18 @@
+button {
+    padding:.75rem;
+    font-size: 1rem;
+    margin-left: 2rem;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color: grey;
+}
+
+.optionButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 2rem;
+}

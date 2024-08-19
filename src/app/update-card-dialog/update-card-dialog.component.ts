@@ -34,7 +34,7 @@ export class UpdateCardDialogComponent implements OnInit{
   onUpdate(){
     let newQuestion = this.updateForm.controls['question'].value!;
     let newAnswer = this.updateForm.controls['answer'].value!;
-    let card = new Flashcard(this.card.id, newQuestion, newAnswer);
+    let card = new Flashcard(this.card.id, newQuestion, newAnswer, this.card.studySetId);
     this.api.updateFlashcard(card).subscribe((data: any) => {
       console.log("Flashcard Updated");
       this.dialogRef.close(card);
