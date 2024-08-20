@@ -23,7 +23,7 @@ export class CreateCardDialogComponent {
     let card = new Flashcard(0, this.question, this.answer, this.studySetId);
     this.api.createFlashcard(card).subscribe(
       {next: (data:any) => {
-        console.log("Succesfully created flashcard: " + JSON.stringify(data));
+        console.log("Succesfully created flashcard: " + JSON.stringify(data));  
         card.id = data.id;
         this.dialogRef.close(card);
       },   

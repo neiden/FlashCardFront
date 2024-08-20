@@ -5,7 +5,8 @@
         <input type="text" class="input" [(ngModel)]="categoryName" required>
       </div>
 </div>
-    <div mat-dialog-actions>
+
+<div mat-dialog-actions>
       <button mat-button (click)="onCancel()">Cancel</button>
       <button mat-button (click)="onCreate()">Create</button>
       <p *ngIf="createFailed">Failed to create study set</p>

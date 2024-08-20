@@ -2,7 +2,7 @@
 
 <mat-card class="set-body" (click)="openStudyView(studySet.id)">
     <div class="content-container">
-        <h1>{{studySet.category}}</h1> 
+        <h1>{{studySet?.category}}</h1> 
 
         <div id="cardOptions">
             <button id="deleteBtn" mat-button (click)="updateStudySet($event)"><i class="material-icons">settings</i></button>

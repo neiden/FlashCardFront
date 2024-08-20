@@ -18,7 +18,7 @@ export class StudysetComponent {
 
   constructor(private dialogRef: MatDialog, private router: Router){}
 
-  openStudyView(id: number){
+  openStudyView(id: string){
     this.router.navigate(["feed", id]);
   }
 

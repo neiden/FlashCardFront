@@ -4,30 +4,30 @@
     <div id="cardContainer" [class.flipped]="questionUp" (click)="flipCard()">
             <div class="front">
                 <mat-card-header>
-                  <mat-card-title>Card {{cardData.id}}</mat-card-title>
+                  <mat-card-title>Question</mat-card-title>
                 </mat-card-header>
                         
-                <mat-card-content>
-                    <p>Question: {{cardData.question}}</p>
-                </mat-card-content>
                 <div id="cardOptions">
                     <button id="deleteBtn" mat-button (click)="updateCard($event)"><i class="material-icons">settings</i></button>
                     <button id="editBtn" mat-button (click)="deleteCard($event)"><i class="material-icons">delete</i></button>
-                </div>
+                    </div>
+                    <mat-card-content class="card-content">
+                        <p>{{cardData?.question}}</p>
+                    </mat-card-content>
             </div>
 
             <div class="back">
                 <mat-card-header>
-                    <mat-card-title>Card {{cardData.id}}</mat-card-title>
+                    <mat-card-title>Answer</mat-card-title>
                   </mat-card-header>
                   
-                  <mat-card-content>
-                      <p>Answer: {{cardData.answer}}</p>
-                  </mat-card-content>
                   <div id="cardOptions">
-                    <button id="deleteBtn" mat-button (click)="updateCard($event)"><i class="material-icons">settings</i></button>
-                    <button id="editBtn" mat-button (click)="deleteCard($event)"><i class="material-icons">delete</i></button>
-                </div>
+                      <button id="deleteBtn" mat-button (click)="updateCard($event)"><i class="material-icons">settings</i></button>
+                      <button id="editBtn" mat-button (click)="deleteCard($event)"><i class="material-icons">delete</i></button>
+                      </div>
+                    <mat-card-content class="card-content">
+                        <p>{{cardData?.answer}}</p>
+                    </mat-card-content>
             </div>
         
     </div>

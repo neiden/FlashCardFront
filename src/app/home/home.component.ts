@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
 
 
   
-  deleteStudySet(setId: number){
+  deleteStudySet(setId: string){
     this.api.deleteStudySet(setId).subscribe((result:any) => {
       console.log("Deleted flashcard");
       this.studySets = this.studySets.filter((set) => set.id != setId);

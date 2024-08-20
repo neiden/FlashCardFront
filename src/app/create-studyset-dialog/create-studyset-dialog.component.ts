@@ -20,7 +20,7 @@ export class CreateStudysetDialogComponent {
   }
 
   onCreate(){
-    let studySet = new StudySet(0, 0, this.categoryName);
+    let studySet = new StudySet("cc86755c-1065-446b-8c5a-41d74771414e", 0, this.categoryName);
     this.api.createStudySet(studySet).subscribe(
       {
         next: (result: any) => {

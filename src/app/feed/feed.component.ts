@@ -86,6 +86,8 @@ export class FeedComponent implements OnInit{
       if (result != null){
         console.log("Adding new card to cardList");
         this.cardList.push(result);
+        this.incrementCard();
+        // this.currentCard = result;
       }
     })
   }

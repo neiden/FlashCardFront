@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FlashcardComponent } from './flashcard.component';
+import { HttpClient } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { MatCardModule } from '@angular/material/card';
 
 describe('FlashcardComponent', () => {
   let component: FlashcardComponent;
@@ -8,7 +12,8 @@ describe('FlashcardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FlashcardComponent ]
+      declarations: [ FlashcardComponent ],
+      imports: [HttpClientTestingModule, MatDialogModule, MatCardModule],
     })
     .compileComponents();
 

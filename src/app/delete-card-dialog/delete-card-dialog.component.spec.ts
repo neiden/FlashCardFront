@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DeleteCardDialogComponent } from './delete-card-dialog.component';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('DeleteCardDialogComponent', () => {
   let component: DeleteCardDialogComponent;
@@ -8,7 +11,12 @@ describe('DeleteCardDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleteCardDialogComponent ]
+      declarations: [ DeleteCardDialogComponent ],
+      imports: [HttpClientTestingModule, MatDialogModule, FormsModule],
+      providers: [
+        { provide: MatDialogRef, useValue: {} }, 
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+       ]
     })
     .compileComponents();
 

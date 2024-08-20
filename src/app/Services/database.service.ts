@@ -54,7 +54,7 @@ export class DatabaseService {
     return this.http.put(this.apiRoot + "StudySet", studySet);
   }
 
-  deleteStudySet(id: number){
+  deleteStudySet(id: string){
     return this.http.delete(this.apiRoot + "StudySet/" + id);
   }
 
